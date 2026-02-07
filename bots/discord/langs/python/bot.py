@@ -14,3 +14,4 @@ if __name__ == "__main__":
         client.run(TOKEN)
     else:
         print("❌ No token provided! Please set the TOKEN variable in bot.py.")
+        input("Press Enter to exit...")
