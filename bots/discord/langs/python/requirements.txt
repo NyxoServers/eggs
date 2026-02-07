@@ -1,0 +1,2 @@
+# Here you can add modules to install on start
+discord.py
