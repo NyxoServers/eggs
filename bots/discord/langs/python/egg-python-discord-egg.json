@@ -1,0 +1,130 @@
+{
+    "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY PTERODACTYL PANEL - PTERODACTYL.IO",
+    "meta": {
+        "version": "PTDL_v2",
+        "update_url": null
+    },
+    "exported_at": "2026-02-07T21:14:19+01:00",
+    "name": "Python Discord Egg",
+    "author": "system@nyxoservers.eu",
+    "description": "NyxoServers.eu Python Discord Egg",
+    "features": [],
+    "docker_images": {
+        "Python 3.14": "ghcr.io\/nyxoservers\/yolks:python_discord.py-3.14",
+        "Python 3.13": "ghcr.io\/nyxoservers\/yolks:python_discord.py-3.13",
+        "Python 3.12": "ghcr.io\/nyxoservers\/yolks:python_discord.py-3.12",
+        "Python 3.11": "ghcr.io\/nyxoservers\/yolks:python_discord.py-3.11",
+        "Python 3.10": "ghcr.io\/nyxoservers\/yolks:python_discord.py-3.10",
+        "Python 3.9": "ghcr.io\/nyxoservers\/yolks:python_discord.py-3.9",
+        "Python 3.8": "ghcr.io\/nyxoservers\/yolks:python_discord.py-3.8",
+        "Python 3.7": "ghcr.io\/nyxoservers\/yolks:python_discord.py-3.7",
+        "Python 2.7": "ghcr.io\/nyxoservers\/yolks:python_discord.py-2.7"
+    },
+    "file_denylist": [],
+    "startup": "python {{MAIN}}",
+    "config": {
+        "files": "{}",
+        "startup": "{\r\n    \"done\": \"Logged in as\"\r\n}",
+        "logs": "{}",
+        "stop": "^C"
+    },
+    "scripts": {
+        "installation": {
+            "script": "# NodeJS discord.js installer\r\n\r\necho \"Installer will start in 5 secconds\"\r\nsleep 1\r\necho \"Installer will start in 4 secconds\"\r\nsleep 1\r\necho \"Installer will start in 3 secconds\"\r\nsleep 1\r\necho \"Installer will start in 2 secconds\"\r\nsleep 1\r\necho \"Installer will start in 1 secconds\"\r\nsleep 1\r\necho -e               \"####################################################################\"\r\necho -e \"#\\033[1;39;44m     _  __               ____                                     \\033[0m#\"\r\necho -e \"#\\033[1;39;44m    \/ |\/ \/_ ____ _____  \/ __\/__ _____  _____ _______  ___ __ __   \\033[0m#\"\r\necho -e \"#\\033[1;39;44m   \/    \/ \/\/ \/\\ \\ \/ _ \\_\\ \\\/ -_) __\/ |\/ \/ -_) __(_-<_\/ -_) \/\/ \/   \\033[0m#\"\r\necho -e \"#\\033[1;39;44m  \/_\/|_\/\\_, \/\/_\\_\\\u200b\\___\/___\/\\__\/_\/  |___\/\\__\/_\/ \/___(_)__\/\\_,_\/    \\033[0m#\"\r\necho -e \"#\\033[1;39;44m       \/___\/                                                      \\033[0m#\"\r\necho -e               \"####################################################################\"\r\necho -e \"\"\r\necho -e \"Installer is starting... \"\r\n\r\nif [ $GIT_DOWNLOAD = 1 ]; then\r\n    echo \"Removing all files...\"\r\n    rm -rf \/mnt\/server\/*\r\n    echo \"Pulling all\"\r\n    git clone $GIT_REPO\r\n    name=$(basename \"$GIT_REPO\")\r\n    cp -r ${name%.git}\/. \/mnt\/server\/\r\n    echo \"Done!\"\r\nelse\r\n    rm -rf \/mnt\/server\/*\r\n    echo Downloading example files...\r\n    downloader https:\/\/raw.githubusercontent.com\/NyxoServers\/eggs\/refs\/heads\/master\/bots\/discord\/langs\/python\/bot.py \/mnt\/server\/bot.py\r\n    downloader https:\/\/raw.githubusercontent.com\/NyxoServers\/eggs\/refs\/heads\/master\/bots\/discord\/langs\/python\/requirements.txt \/mnt\/server\/requirements.txt\r\n    echo \"Done!\"\r\nfi",
+            "container": "ghcr.io\/nyxoservers\/installers:alpine",
+            "entrypoint": "ash"
+        }
+    },
+    "variables": [
+        {
+            "name": "Enable Antivirus",
+            "description": "If antivirus should be enabled",
+            "env_variable": "ENABLE_AV",
+            "default_value": "1",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|boolean",
+            "field_type": "text"
+        },
+        {
+            "name": "Autodelete quarantine",
+            "description": "If quarantine should automaticaly delete all files in quarantine",
+            "env_variable": "AUTOREMOVE",
+            "default_value": "0",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|boolean",
+            "field_type": "text"
+        },
+        {
+            "name": "Scan Only Modules",
+            "description": "if antivirus should only scan modules installed by pip",
+            "env_variable": "ONLY_MODULES",
+            "default_value": "0",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|boolean",
+            "field_type": "text"
+        },
+        {
+            "name": "Git downloading",
+            "description": "Download repository and use that instead of code in the directory\r\nTO ENABLE PLEASE REINSTALL THE SERVER, WILL REMOVE CURRENT FILES",
+            "env_variable": "GIT_DOWNLOAD",
+            "default_value": "0",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|boolean",
+            "field_type": "text"
+        },
+        {
+            "name": "Repository Link",
+            "description": "Link to the git repository to be used",
+            "env_variable": "GIT_REPO",
+            "default_value": "https:\/\/github.com\/mrnobody\/example",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|string",
+            "field_type": "text"
+        },
+        {
+            "name": "Use github token",
+            "description": "If we should use bot token when updating",
+            "env_variable": "GIT_TOKEN_ENABLED",
+            "default_value": "0",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|boolean",
+            "field_type": "text"
+        },
+        {
+            "name": "Git token",
+            "description": "Git token to use when updating",
+            "env_variable": "GIT_TOKEN",
+            "default_value": "None",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|string",
+            "field_type": "text"
+        },
+        {
+            "name": "Install dependencies on start",
+            "description": "This will take anything from package lock and installs it onto the server.\r\nRequires \"requirements.txt\" to be created before",
+            "env_variable": "INSTALL_PKGS",
+            "default_value": "1",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|boolean",
+            "field_type": "text"
+        },
+        {
+            "name": "Main File",
+            "description": "The file ran at start",
+            "env_variable": "MAIN",
+            "default_value": "bot.py",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|string|max:20",
+            "field_type": "text"
+        }
+    ]
+}

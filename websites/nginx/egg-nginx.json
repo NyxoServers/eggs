@@ -5,9 +5,9 @@
         "update_url": null
     },
     "exported_at": "2025-03-23T09:39:35+01:00",
-    "name": "WebHost Egg",
-    "author": "info@djfinn.nl",
-    "description": "Introducing a versatile hosting solution for any website!\r\n\r\nWith built-in Composer support, simply specify the packages you need in the \u201cPackages\u201d box, and they\u2019ll be installed automatically when the server starts. Want to set up WordPress? Just toggle the WordPress slider during server setup, and WordPress will be ready to go in moments.\r\n\r\nSupport for Pelican panel & Pterodactyl!\r\n\r\n\u00a9 Sigma Productions 2025",
+    "name": "Nginx Egg",
+    "author": "system@nyxoservers.eu",
+    "description": "Introducing a versatile hosting solution for any website!\r\n\r\nWith built-in Composer support, simply specify the packages you need in the \u201cPackages\u201d box, and they\u2019ll be installed automatically when the server starts. Want to set up WordPress? Just toggle the WordPress slider during server setup, and WordPress will be ready to go in moments.\r\n\r\nSupport for Pelican panel & Pterodactyl!\r\n\r\n\u00a9 Sigma Productions 2025 - NyxoServers.eu 2025",
     "features": null,
     "docker_images": {
         "PHP 8.4": "ghcr.io\/sigma-production\/nginx-ptero:8.4",
